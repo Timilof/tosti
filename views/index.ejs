@@ -1,0 +1,75 @@
+<% include partials/header.ejs %>
+
+<body>
+
+
+  <a class="imglink" href="#"><img src="https://vignette.wikia.nocookie.net/runescape2/images/5/5e/Frog_%28Court_Cases%29_chathead.png/revision/latest?cb=20121206170121" alt="Link to home"></a>
+  <h1>Let's make a tosti!</h1>
+  <form class="" action="/detail" method="post">
+    <fieldset class="bread">
+      <legend>What kind of bread would you like?</legend>
+      <div class="container">
+        <% if (breads) { breads.forEach(function(loaf) { %>
+        <div class="item">
+          <input id="<%= loaf.name %>" type="checkbox" name="<%=loaf.name%>" value="<%= loaf.name%>">
+          <label for="<%= loaf.name %>"><img src="<%=loaf.cover_image%>" alt="<%= loaf.name%>"></label>
+          <p>
+            <%=loaf.name%>
+          </p>
+        </div>
+        <% })} %>
+      </div>
+    </fieldset>
+
+    <fieldset class="cheese">
+      <legend>What kind of cheese?</legend>
+<div class="container">
+      <% if (chies) { chies.forEach(function(cut) { %>
+      <div class="item">
+        <input id="<%= cut.name %>" test" type="checkbox" name="<%=cut.name%>" value="<%=cut.name%>">
+        <label for="<%= cut.name %>"><img src="<%=cut.cover_image%>" alt="<%=cut.name%>"></label>
+        <p>
+          <%=cut.name%>
+        </p>
+      </div>
+      <% })} %>
+</div>
+    </fieldset>
+
+    <fieldset class="toppings">
+      <legend>Anything to top it off?</legend>
+<div class="container">
+      <% if (toops) { toops.forEach(function(top) { %>
+      <div class="item">
+        <input id="<%= top.name %>" type="checkbox" name="<%= top.name %>" value="<%=top.name%>">
+        <label for="<%= top.name %>"><img src="<%=top.cover_image%>" alt="<%=top.name%>"></label>
+        <p>
+          <%=top.name%>
+        </p>
+      </div>
+      <% })} %>
+</div>
+    </fieldset>
+
+
+    <input class="subm" type="submit" name="" value="make my list">
+
+  </form>
+
+  <section class="results none">
+<div class="holding">
+<textarea id="listInput" class="boodscappenlist" name="name" rows="8" cols="25"></textarea>
+</div>
+<div class="buttoms">
+  <button class="copi" type="button" name="button">Copy list to clipboard</button>
+  <button class="remover" type="button" name="button">Empty list</button>
+
+  <a class="sick_button linkTo" href="mailto:tostilovver_420@gmail.com?
+  &amp;subject=Mijn%20tosti%20boodschappenlijst%20
+  &amp;body=You'll%20need%20these%20items%20to%20make%20your'e%20tostie:
+">Mail my list</a>
+</div>
+
+  </section>
+
+  <% include partials/footer.ejs %>
